@@ -39,7 +39,7 @@ const News = (props) => {
 
 
 
-  const capitalizeFirstLetter=(string)=> {
+  const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
 
   }
@@ -47,7 +47,7 @@ const News = (props) => {
   const fetchMoreData = async () => {
 
     setPage(page + 1)
-    const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=71836241edcb4a0aa90f2c5b7db61ad2&page=${page}&pageSize=${props.pageSize}`;
+    const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=71836241edcb4a0aa90f2c5b7db61ad2&page=${page + 1}&pageSize=${props.pageSize}`;
     let data = await fetch(url);
     let parsedData = await data.json();
     setArticles(articles.concat(parsedData.articles))
@@ -59,8 +59,8 @@ const News = (props) => {
   return (
     <div className="container my-5 ">
       <h1 className='text-center' style={{ margin: "35px" }} >Top Headline's -{capitalizeFirstLetter(props.category)}</h1>
-    
- 
+
+
       <InfiniteScroll
         dataLength={articles.length}
         next={fetchMoreData}

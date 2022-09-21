@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react'
+import React from 'react'
 
 const NewsItem = (props) => {
 
@@ -11,7 +11,7 @@ const NewsItem = (props) => {
         <div className="card-body">
           <h5 className="card-title">{title}</h5>
           <p className="card-text">{description}</p>
-          <p class="card-text"><small class="text-muted">By {!author ? "unknown" : author} on {new Date(date).toGMTString()}</small></p>
+          <p className="card-text"><small className="text-muted">By {!author ? "unknown" : author} on {new Date(date).toGMTString()}</small></p>
           <a href={newsUrl} className="btn btn-dark">Read More</a>
         </div>
       </div>
